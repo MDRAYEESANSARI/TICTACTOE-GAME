@@ -82,7 +82,7 @@ h1 {
 
 } */
 
-@media only screen and (width <= 440px) {
+@media only screen and (width <= 600px) {
 
   #reset-btn {
     height: 13vmin;
