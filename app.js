@@ -3,13 +3,13 @@ let resetBtn = document.querySelector("#reset-btn");
 let newGame = document.querySelector(".new-reset");
 let showWinnerContainer = document.querySelector(".show-winner");
 let msg = document.querySelector("#msg");
-let round= document.querySelector("#round")
+let round = document.querySelector("#round");
 let turnO = false;
 const winPatterns = [
   //winPattern
   [0, 1, 2], //[0]
   [0, 3, 6], //[1]
-  [0, 3, 7], //[2]
+  [0, 4, 8], //[2]
   [1, 4, 7], //[3]
   [3, 4, 5], //[4]
   [6, 7, 8], //[5]
@@ -22,6 +22,9 @@ const resetGame = () => {
   enableBox();
   showWinnerContainer.classList.add("hide");
   round.classList.remove("hide");
+  audio.muted = false;
+  audioNewgame.play();
+  // audio2.muted = true;
 };
 const disableBox = () => {
   for (let box of boxes) {
@@ -35,11 +38,18 @@ const enableBox = () => {
   }
 };
 
+const audio2 = new Audio();
+audio2.src = "correct-choice-43861.mp3";
+const audioNewgame = new Audio();
+audioNewgame.src = "newgame.wav";
+
 const showWinner = (winner) => {
   msg.innerText = `Congratulations, Winner is ${winner}`;
   showWinnerContainer.classList.remove("hide");
   disableBox();
   round.classList.add("hide");
+  audio2.play();
+  audio.muted = true;
 };
 
 const checkWinner = () => {
@@ -72,3 +82,6 @@ boxes.forEach((box) => {
 
 newGame.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
+
+const audio = new Audio();
+audio.src = "click-sound.wav";

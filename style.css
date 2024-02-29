@@ -25,6 +25,7 @@ h1 {
   color: rgb(0, 85, 98);
   font-weight: bold;
   cursor: pointer;
+  
 }
 .game {
   width: 56vmin;
@@ -55,6 +56,10 @@ h1 {
   color: rgb(0, 85, 98);
   background-color: rgb(236, 236, 236);
   border: 1px solid rgb(0, 85, 98);
+}
+#reset-btn:active{
+  margin: 5px;
+
 }
 .new-reset {
   height: 4vmin;
